@@ -1,7 +1,8 @@
 var fs = require("fs");
 var path = require("path");
 var inquirer = require('inquirer');
-var generateMarkdown = require('./generateMarkdown')
+var axios = require("axios");
+var generateMarkdown = require('./generateMarkdown');
 const questions = [
 
     {
@@ -25,10 +26,15 @@ const questions = [
         message: "How is this used?"
     },
     {
-        type: "input",
+        type: "list",
+        message: "Please select a license from the list",
         name: "license",
-        message: "Which license will you use?"
-    },
+        choices: [
+          "Apache License 2.0",
+          "MIT",
+          "GNU GPLv3"
+        ]
+      },
     {
         type: "input",
         name: "credits",
@@ -41,24 +47,37 @@ const questions = [
     },
     {
         type: "input",
-        name: "questions",
-        message: "Do you have any questions about this project?"
+        name: "username",
+        message: "Enter your GitHub username"
     }
-
-
 ]
+
+
 
 function writeToFile(fileName, data) {
     return fs.writeFileSync(path.join(process.cwd(),fileName), data)
-
 }
 
     function init() {
         inquirer.prompt(questions).then((answers) => {
-            writeToFile("test.md", generateMarkdown({...answers}))
-        
+            writeToFile("test.md", generateMarkdown({...answers}))       
+            })
+
+            // github image
+            .then(function({ username }) {
+                const queryUrl = `https://api.github.com/users/${username}/.png?`
+
+                async function getImage() {
+
+                    let resp = await axios.get(url, config);
+                    resp.data.pipe(fs.createWriteStream('image.png'));
+                }
+                
+                getImage();
             })
     }  
+
+   
     
 
 init();

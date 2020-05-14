@@ -1,6 +1,7 @@
 function generateMarkdown(data) {
     return `
   # ${data.title}
+  ![Mozilla Add-on](https://img.shields.io/amo/v/blue?color=blue&label=readme%20generator&logoColor=white)
   
  ## Description
  
