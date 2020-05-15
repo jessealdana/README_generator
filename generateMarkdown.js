@@ -34,9 +34,11 @@ function generateMarkdown(data) {
  
  ${data.tests}
 
- ## Questions
+ ## Questions?
  
- ${data.questions}
+ Contact ${data.username} at Github.
+ 
+ ![Image of user](${data.avatar_url})
 
     
   

@@ -1,10 +1,10 @@
 
-  # The README project
+  # The project
   ![Mozilla Add-on](https://img.shields.io/amo/v/blue?color=blue&label=readme%20generator&logoColor=white)
   
  ## Description
  
- This generator fills the gap requiring easy to write and easy to read README files
+ this project does something
 
  ## Table of Contents
   * [Installation](#Installation)
@@ -15,11 +15,11 @@
   * [Questions](#questions)
  ## Installation
 
- Type "node index" into the command line of the parent directory
+ the user follows the instructions
 
  ## Usage
  
- Answer the questions from the prompts in the command line.
+ it is used to produce something
 
  ## License
  
@@ -27,15 +27,17 @@
 
  ## Credits
  
- Jesse Aldana
+ we all did
 
  ## Tests
  
- console.log(username)
+ open preview in the test
 
- ## Questions
+ ## Questions?
  
- undefined
+ Contact jessealdana at Github.
+ 
+ ![Image of user](https://avatars0.githubusercontent.com/u/61436744?v=4)
 
     
   

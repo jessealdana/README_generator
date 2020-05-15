@@ -59,22 +59,24 @@ function writeToFile(fileName, data) {
 }
 
     function init() {
-        inquirer.prompt(questions).then((answers) => {
-            writeToFile("test.md", generateMarkdown({...answers}))       
-            })
+        inquirer.prompt(questions)
 
             // github image
-            .then(function({ username }) {
-                const queryUrl = `https://api.github.com/users/${username}/.png?`
+            .then(async function(answers) {
+                const {username} = answers
+                const queryUrl = `https://api.github.com/users/${username}`
 
-                async function getImage() {
-
-                    let resp = await axios.get(url, config);
-                    resp.data.pipe(fs.createWriteStream('image.png'));
-                }
                 
-                getImage();
+
+                    let { data } = await axios.get(queryUrl);
+
+                answers.avatar_url = data.avatar_url;
+                
+                console.log(answers);
+                writeToFile("test.md", generateMarkdown({...answers}))   
+
             })
+
     }  
 
    
